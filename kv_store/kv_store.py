@@ -22,19 +22,13 @@ class KVStore(Database):
     def get(self, key):
         if key not in self.data:
             return None
-        return self.data[key]
+        return self.data.get(key)
 
     def delete(self, key) -> bool:
-        try:
-            self.data.pop(key)
-            return True
-        except KeyError:
-            return False
+        return self.data.pop(key, None)
 
     def exists(self, key) -> bool:
         return key in self.data
 
     def keys(self):
         return self.data.keys()
-
-
