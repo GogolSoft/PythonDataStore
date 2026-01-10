@@ -20,6 +20,8 @@ class KVStore(Database):
             json.dump(self.data, new_version, indent=4)
 
     def get(self, key):
+        if key not in self.data:
+            return None
         return self.data[key]
 
     def delete(self, key) -> bool:
