@@ -1,10 +1,3 @@
-# Create, Open, Read, Save (key/value)
-# kv_store = KVStore() - memory
-# kv_store = KVStore('path-to-your-db)
-# kv set (key, value)
-# kv get, delete, exists, count, keys, save, save(path)
-import json
-
 from base.db import Database
 
 
