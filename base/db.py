@@ -19,3 +19,9 @@ class Database:
         elif self.path.is_file():
             with open(self.path, 'r+') as existing_file:
                 self.data = json.load(existing_file)
+
+    def save(self):
+        if self.path is None:
+            return
+        with open(self.path, 'w+') as new_version:
+            json.dump(self.data, new_version, indent=4)

@@ -10,12 +10,6 @@ class TableStore(Database):
             raise TypeError("TableStore can only store dictionaries like {columnName : columnValue}")
         self.data[key] = value
 
-    def save(self):
-        if self.path is None:
-            return
-        with open(self.path, 'w+') as new_version:
-            json.dump(self.data, new_version, indent=4)
-
     def get(self, key):
         return self.data.get(key)
 

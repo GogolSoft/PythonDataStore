@@ -13,12 +13,6 @@ class KVStore(Database):
     def set(self, key, value):
         self.data[key] = value
 
-    def save(self):
-        if self.path is None:
-            return
-        with open(self.path, 'w+') as new_version:
-            json.dump(self.data, new_version, indent=4)
-
     def get(self, key):
         if key not in self.data:
             return None
